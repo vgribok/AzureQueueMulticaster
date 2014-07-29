@@ -7,6 +7,26 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureQueueMulticaster", "Az
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureQueueMessageMulticaster", "AzureQueueMessageMulticaster\AzureQueueMessageMulticaster.csproj", "{047A137E-CFF6-4A39-9480-1A50C7734A31}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E18C6287-DE22-4FC5-A770-F2D9FA4F92EC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{EF20F0A6-8090-47DB-BA2B-F2AE3E26B6C6}"
+	ProjectSection(SolutionItems) = preProject
+		..\Submodules\ReadMe.txt = ..\Submodules\ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspectacular", "Aspectacular", "{D45523EA-C958-4686-AF2A-0BD38D998F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspectacular.Framework.Core", "..\Submodules\Aspectacular\Vlad.Framework.Core\Aspectacular.Framework.Core.csproj", "{07E5DA8B-6018-427B-9ECD-9C39AC691036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspectacular.Framework.Main", "..\Submodules\Aspectacular\Value.Framework.Aspectacular\Aspectacular.Framework.Main.csproj", "{AA70188E-305F-4910-AFEC-6DB7E79F8603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspectacular.Framework.Azure", "..\Submodules\Aspectacular\Aspectacular.Framework.Azure\Aspectacular.Framework.Azure.csproj", "{70395CA3-7417-4BBB-923D-031E59583BE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +41,26 @@ Global
 		{047A137E-CFF6-4A39-9480-1A50C7734A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{047A137E-CFF6-4A39-9480-1A50C7734A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{047A137E-CFF6-4A39-9480-1A50C7734A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E5DA8B-6018-427B-9ECD-9C39AC691036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E5DA8B-6018-427B-9ECD-9C39AC691036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E5DA8B-6018-427B-9ECD-9C39AC691036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E5DA8B-6018-427B-9ECD-9C39AC691036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA70188E-305F-4910-AFEC-6DB7E79F8603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA70188E-305F-4910-AFEC-6DB7E79F8603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA70188E-305F-4910-AFEC-6DB7E79F8603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA70188E-305F-4910-AFEC-6DB7E79F8603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70395CA3-7417-4BBB-923D-031E59583BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70395CA3-7417-4BBB-923D-031E59583BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70395CA3-7417-4BBB-923D-031E59583BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70395CA3-7417-4BBB-923D-031E59583BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D45523EA-C958-4686-AF2A-0BD38D998F0E} = {EF20F0A6-8090-47DB-BA2B-F2AE3E26B6C6}
+		{07E5DA8B-6018-427B-9ECD-9C39AC691036} = {D45523EA-C958-4686-AF2A-0BD38D998F0E}
+		{AA70188E-305F-4910-AFEC-6DB7E79F8603} = {D45523EA-C958-4686-AF2A-0BD38D998F0E}
+		{70395CA3-7417-4BBB-923D-031E59583BE7} = {D45523EA-C958-4686-AF2A-0BD38D998F0E}
 	EndGlobalSection
 EndGlobal

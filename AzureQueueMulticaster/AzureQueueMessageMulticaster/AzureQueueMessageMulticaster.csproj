@@ -13,6 +13,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RoleType>Worker</RoleType>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,7 +78,28 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Submodules\Aspectacular\Aspectacular.Framework.Azure\Aspectacular.Framework.Azure.csproj">
+      <Project>{70395ca3-7417-4bbb-923d-031e59583be7}</Project>
+      <Name>Aspectacular.Framework.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\Aspectacular\Value.Framework.Aspectacular\Aspectacular.Framework.Main.csproj">
+      <Project>{aa70188e-305f-4910-afec-6db7e79f8603}</Project>
+      <Name>Aspectacular.Framework.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\Aspectacular\Vlad.Framework.Core\Aspectacular.Framework.Core.csproj">
+      <Project>{07e5da8b-6018-427b-9ecd-9c39ac691036}</Project>
+      <Name>Aspectacular.Framework.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

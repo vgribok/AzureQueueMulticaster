@@ -1,4 +1,4 @@
-[submodule "Aspectacular"]
-	path = Aspectacular
+[submodule "Submodules/Aspectacular"]
+	path = Submodules/Aspectacular
 	url = https://github.com/vgribok/Aspectacular.git
 	branch = MainWork
