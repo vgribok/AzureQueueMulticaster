@@ -4,5 +4,9 @@
     <Imports>
       <Import moduleName="Diagnostics" />
     </Imports>
+    <ConfigurationSettings>
+      <Setting name="QueueStorageAccountConnectionString" />
+      <Setting name="AzureQueueMulticastRoutes" />
+    </ConfigurationSettings>
   </WorkerRole>
 </ServiceDefinition>

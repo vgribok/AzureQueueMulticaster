@@ -4,6 +4,8 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="QueueStorageAccountConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="AzureQueueMulticastRoutes" value="&lt;AzureQueueMulticastRoutes xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;AzureQueueMulticastRoute&gt;&lt;SourceQueue MessageInivisibilityTimeMillisec=&quot;10000&quot; MaxDelayBetweenDequeueAttemptsSeconds=&quot;15&quot;&gt;&lt;ConnectionStringName&gt;QueueStorageAccountConnectionString&lt;/ConnectionStringName&gt;&lt;QueueName&gt;dummysourcequeue&lt;/QueueName&gt;&lt;/SourceQueue&gt;&lt;DestinationQueues&gt;&lt;AzureDestinationQueueConnection&gt;&lt;ConnectionStringName&gt;QueueStorageAccountConnectionString&lt;/ConnectionStringName&gt;&lt;QueueName&gt;destionationuno&lt;/QueueName&gt;&lt;/AzureDestinationQueueConnection&gt;&lt;AzureDestinationQueueConnection&gt;&lt;ConnectionStringName&gt;QueueStorageAccountConnectionString&lt;/ConnectionStringName&gt;&lt;QueueName&gt;destionationdos&lt;/QueueName&gt;&lt;/AzureDestinationQueueConnection&gt;&lt;/DestinationQueues&gt;&lt;/AzureQueueMulticastRoute&gt;&lt;/AzureQueueMulticastRoutes&gt;" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
