@@ -22,6 +22,17 @@ namespace AzureQueueMessageMulticaster
 
         public override bool OnStart()
         {
+            InitializeEnvironment();
+
+            // Load queue route info from 
+            this.routes = AOP.Invoke(() => AzureQueueMulticastRouteConfiguration.LoadFromAzureRoleSettings("AzureQueueMulticastRoutes"));
+            this.routes.GetProxy().Invoke(theRoutes => theRoutes.Start());
+
+            return base.OnStart();
+        }
+
+        private static void InitializeEnvironment()
+        {
             // For information on handling configuration changes
             // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
 
@@ -31,11 +42,6 @@ namespace AzureQueueMessageMulticaster
             ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount * 12;
 
             //RoleEnvironment.Changing += this.RoleEnvironmentChanging;
-
-            this.routes = AOP.Invoke(() => AzureQueueMulticastRouteConfiguration.LoadFromAzureRoleSettings("AzureQueueMulticastRoutes"));
-            this.routes.GetProxy().Invoke(theRoutes => theRoutes.Start());
-
-            return base.OnStart();
         }
 
         public override void OnStop()
