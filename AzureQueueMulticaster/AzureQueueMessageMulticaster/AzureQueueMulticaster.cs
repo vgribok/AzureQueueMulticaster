@@ -62,7 +62,6 @@ namespace AzureQueueMessageMulticaster
 	{
 	}
 
-	[Serializable]
 	public class AzureSourceQueueConnection : AzureQueueConnection
 	{
 		[XmlAttribute]
@@ -75,7 +74,6 @@ namespace AzureQueueMessageMulticaster
 	/// <summary>
 	/// Represents a route between a single source queue and multiple destination queues.
 	/// </summary>
-	[Serializable]
 	public class AzureQueueMulticastRoute : IDisposable
 	{
 		protected AzureQueueMonitor queueMonitor;
@@ -181,6 +179,9 @@ namespace AzureQueueMessageMulticaster
 		}
 	}
 
+    /// <summary>
+    /// Represents XML-serializable collection of queue dispatcher multicast routes.
+    /// </summary>
 	[XmlRoot(ElementName = "AzureQueueMulticastRoutes")]
 	public class AzureQueueMulticastRouteConfiguration : List<AzureQueueMulticastRoute>
 	{
@@ -230,7 +231,7 @@ namespace AzureQueueMessageMulticaster
 			}
 
 			// ReSharper disable once InvokeAsExtensionMethod
-			string xml = TypeAndRefectionExtensions.ToXml(this, defaultNamespace, settings);
+			string xml = this.ToXml(defaultNamespace, settings);
 
 			return xml;
 		}
