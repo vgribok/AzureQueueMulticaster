@@ -20,6 +20,21 @@ namespace AzureQueueMessageMulticaster
 
         #region Worker Role Overrides
 
+        static WorkerRole()
+        {
+            Aspect.DefaultAspectFactory = () =>
+                            new Aspect[] 
+                            {
+                                new TraceOutputAspect(),
+                                new StopwatchAspect(detailed: false), 
+
+#if DEBUG
+                                new SlowFullMethodSignatureAspect(), 
+                                new ReturnValueLoggerAspect(),
+#endif
+                            };
+        }
+
         public override bool OnStart()
         {
             InitializeEnvironment();
