@@ -41,7 +41,7 @@ namespace AzureQueueMessageMulticaster
 
             // Load queue route info from 
             this.routes = AOP.Invoke(() => AzureQueueMulticastRouteConfiguration.LoadFromAzureRoleSettings("AzureQueueMulticastRoutes"));
-            this.routes.GetProxy().Invoke(theRoutes => theRoutes.Start());
+            this.routes.GetProxy().Invoke(theRoutes => theRoutes.BeginAsyncMessageForwarding());
 
             return base.OnStart();
         }
@@ -61,7 +61,7 @@ namespace AzureQueueMessageMulticaster
 
         public override void OnStop()
         {
-            this.routes.Stop();
+            this.routes.EndMessageForwarding();
 
             base.OnStop();
         }
